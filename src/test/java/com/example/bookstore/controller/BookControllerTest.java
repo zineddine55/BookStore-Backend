@@ -30,22 +30,21 @@ class BookControllerTest {
 
     @BeforeEach
     void setUp() {
-        List<Book> books = new ArrayList<>();
-        String keyWords = "spring";
 
         Book book1 = new Book();
         String isbn1 = "9781449306403";
         String title1 = "Just Spring";
         book1.setIsbn13(isbn1);
         book1.setTitle(title1);
-        books.add(book1);
 
         Book book2 = new Book();
         String isbn2 = "9781449316082";
         String title2 = "Just Spring Integration";
         book2.setIsbn13(isbn2);
         book2.setTitle(title2);
-        books.add(book2);
+
+        List books = Arrays.asList(book1, book2);
+        String keyWords = "spring";
 
         when(bookService.getBook(isbn1)).thenReturn(of(book1));
 
